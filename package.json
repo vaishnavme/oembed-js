@@ -2,11 +2,22 @@
   "name": "oembed-js",
   "version": "1.0.0",
   "description": "simple url extractor",
-  "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2"
+  },
   "scripts": {
+    "build": "tsc",
+    "check-format": "prettier --check .",
+    "format": "prettier --write .",
+    "ci": "npm run build && npm run check-format",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vaishnav Chandurkar",
-  "license": "MIT"
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "dist/index.js"
 }
