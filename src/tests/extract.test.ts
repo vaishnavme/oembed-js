@@ -57,7 +57,7 @@ test('getId: youtube.com embed', () => {
       link: 'https://www.youtube.com/embed/po663TAfeOE?si=v4VQ3BdjqBxMehuK',
       provider: 'youtube',
     }),
-  ).toBe('po663TAfeOE');
+  ).toStrictEqual({ id: 'po663TAfeOE' });
 });
 
 test('getId: youtube.com video', () => {
@@ -66,7 +66,7 @@ test('getId: youtube.com video', () => {
       link: 'https://www.youtube.com/watch?v=-ELSsP9MDt0',
       provider: 'youtube',
     }),
-  ).toBe('-ELSsP9MDt0');
+  ).toStrictEqual({ id: '-ELSsP9MDt0' });
 });
 
 test('getId: youtu.be video', () => {
@@ -75,7 +75,7 @@ test('getId: youtu.be video', () => {
       link: 'https://youtu.be/EjvyBDK8g7Y?si=2h3JnJ7MUgU72erc',
       provider: 'youtube',
     }),
-  ).toBe('EjvyBDK8g7Y');
+  ).toStrictEqual({ id: 'EjvyBDK8g7Y' });
 });
 
 test('getId: youtube.com playlist', () => {
@@ -84,7 +84,7 @@ test('getId: youtube.com playlist', () => {
       link: 'https://youtube.com/playlist?list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&si=hKFGa-gjceCRSknB',
       provider: 'youtube',
     }),
-  ).toBe('PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP');
+  ).toStrictEqual({ id: 'PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP' });
 });
 
 test('getId: youtube.com playlist embed', () => {
@@ -93,7 +93,7 @@ test('getId: youtube.com playlist embed', () => {
       link: 'https://www.youtube.com/embed/videoseries?si=o3-gkHiOvzf2boq7&amp;list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP',
       provider: 'youtube',
     }),
-  ).toBe('PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP');
+  ).toStrictEqual({ id: 'PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP' });
 });
 
 test('getId: loom.com share', () => {
@@ -102,7 +102,7 @@ test('getId: loom.com share', () => {
       link: 'https://www.loom.com/share/912e89a68ccc42c5ab5096fec7cd63d6?sid=ea81dbca-d822-4b98-bf8f-89a447f31801',
       provider: 'loom',
     }),
-  ).toBe('912e89a68ccc42c5ab5096fec7cd63d6');
+  ).toStrictEqual({ id: '912e89a68ccc42c5ab5096fec7cd63d6' });
 });
 
 test('getId: loom.com embed', () => {
@@ -111,7 +111,7 @@ test('getId: loom.com embed', () => {
       link: 'https://www.loom.com/embed/e5b8c04bca094dd8a5507925ab887002?sid=0f136068-cf47-494a-9057-b1b07f973cea&hideEmbedTopBar=true',
       provider: 'loom',
     }),
-  ).toBe('e5b8c04bca094dd8a5507925ab887002');
+  ).toStrictEqual({ id: 'e5b8c04bca094dd8a5507925ab887002' });
 });
 
 test('getId: vimeo.com', () => {
@@ -120,7 +120,7 @@ test('getId: vimeo.com', () => {
       link: 'https://vimeo.com/1016625668?fl=pl&fe=sh',
       provider: 'vimeo',
     }),
-  ).toBe('1016625668');
+  ).toStrictEqual({ id: '1016625668' });
 });
 
 test('getId: vimeo.com embed', () => {
@@ -129,7 +129,7 @@ test('getId: vimeo.com embed', () => {
       link: 'https://player.vimeo.com/video/1016625668?h=b71bbce9d6',
       provider: 'vimeo',
     }),
-  ).toBe('1016625668');
+  ).toStrictEqual({ id: '1016625668' });
 });
 
 test('getId: codepen.io', () => {
@@ -156,7 +156,7 @@ test('getId: codesandbox.io', () => {
       link: 'https://codesandbox.io/p/sandbox/editor-w75ob2',
       provider: 'codesandbox',
     }),
-  ).toBe('w75ob2');
+  ).toStrictEqual({ id: 'w75ob2' });
 });
 
 test('getId: codesandbox.io embed', () => {
@@ -165,5 +165,5 @@ test('getId: codesandbox.io embed', () => {
       link: 'https://codesandbox.io/embed/w75ob2?view=editor+%2B+preview&module=%2Fsrc%2FApp.js',
       provider: 'codesandbox',
     }),
-  ).toBe('w75ob2');
+  ).toStrictEqual({ id: 'w75ob2' });
 });

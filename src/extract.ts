@@ -33,10 +33,15 @@ class Extract {
         const playlistMatch = link
           .replace(/&amp;/g, '&')
           .match(regexs.youtube_playlist);
-        if (playlistMatch && playlistMatch[1]) return playlistMatch[1];
+        if (playlistMatch && playlistMatch[1])
+          return {
+            id: playlistMatch[1],
+          };
 
         const videoMatch = link.match(regexs.youtube_video);
-        if (videoMatch && videoMatch[1]) return videoMatch[1];
+        if (videoMatch && videoMatch[1]) {
+          return { id: videoMatch[1] };
+        }
 
         validate.unsupportedEmbed();
         return;
@@ -44,7 +49,9 @@ class Extract {
 
       case providers.loom: {
         const loomMatch = link.match(regexs.loom);
-        if (loomMatch && loomMatch[1]) return loomMatch[1];
+        if (loomMatch && loomMatch[1]) {
+          return { id: loomMatch[1] };
+        }
 
         validate.unsupportedEmbed();
         return;
@@ -52,7 +59,9 @@ class Extract {
 
       case providers.vimeo: {
         const vimeoMatch = link.match(regexs.vimeo);
-        if (vimeoMatch && vimeoMatch[1]) return vimeoMatch[1];
+        if (vimeoMatch && vimeoMatch[1]) {
+          return { id: vimeoMatch[1] };
+        }
         validate.unsupportedEmbed();
         return;
       }
@@ -71,7 +80,9 @@ class Extract {
 
       case providers.codesandbox: {
         const codesandboxMatch = link.match(regexs.codesandbox);
-        if (codesandboxMatch && codesandboxMatch[1]) return codesandboxMatch[1];
+        if (codesandboxMatch && codesandboxMatch[1]) {
+          return { id: codesandboxMatch[1] };
+        }
         validate.unsupportedEmbed();
         return;
       }
