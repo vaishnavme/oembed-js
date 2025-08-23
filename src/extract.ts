@@ -30,16 +30,66 @@ class Extract {
   getId({ link, provider }: { link: string; provider: Providers }) {
     switch (provider) {
       case providers.youtube: {
-        const parsed = link.match(regexs[providers.youtube]);
+        const playlistMatch = link
+          .replace(/&amp;/g, '&')
+          .match(regexs.youtube_playlist);
+        if (playlistMatch && playlistMatch[1])
+          return {
+            id: playlistMatch[1],
+          };
 
-        if (!parsed || !parsed[1]) {
-          throw new Error('Embed is not supported for this URL');
+        const videoMatch = link.match(regexs.youtube_video);
+        if (videoMatch && videoMatch[1]) {
+          return { id: videoMatch[1] };
         }
-        return parsed[1];
+
+        validate.unsupportedEmbed();
+        return;
+      }
+
+      case providers.loom: {
+        const loomMatch = link.match(regexs.loom);
+        if (loomMatch && loomMatch[1]) {
+          return { id: loomMatch[1] };
+        }
+
+        validate.unsupportedEmbed();
+        return;
+      }
+
+      case providers.vimeo: {
+        const vimeoMatch = link.match(regexs.vimeo);
+        if (vimeoMatch && vimeoMatch[1]) {
+          return { id: vimeoMatch[1] };
+        }
+        validate.unsupportedEmbed();
+        return;
+      }
+
+      case providers.codepen: {
+        const codepenMatch = link.match(regexs.codepen);
+        if (codepenMatch && codepenMatch[2]) {
+          return {
+            username: codepenMatch[1],
+            id: codepenMatch[2],
+          };
+        }
+        validate.unsupportedEmbed();
+        return;
+      }
+
+      case providers.codesandbox: {
+        const codesandboxMatch = link.match(regexs.codesandbox);
+        if (codesandboxMatch && codesandboxMatch[1]) {
+          return { id: codesandboxMatch[1] };
+        }
+        validate.unsupportedEmbed();
+        return;
       }
 
       default:
-        return null;
+        validate.unsupportedEmbed();
+        return;
     }
   }
 }

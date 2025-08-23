@@ -12,6 +12,11 @@ export const supported_urls = {
 };
 
 export const regexs = {
-  [providers.youtube]:
+  youtube_video:
     /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|&v(?:i)?=))([^#&?]*).*/,
+  youtube_playlist: /[?&]list=([^#&?]+)/,
+  loom: /\/(?:share|embed)\/([0-9a-fA-F]+)(?=\b|[?/])/,
+  vimeo: /(?:vimeo\.com\/|player\.vimeo\.com\/video\/)(\d+)/,
+  codepen: /codepen\.io\/([^\/]+)\/(?:embed\/preview|pen)\/([^\/\?]+)/,
+  codesandbox: /codesandbox\.io\/(?:embed\/|p\/sandbox\/[\w-]+-)([^\/\?\s]+)/,
 };

@@ -14,6 +14,10 @@ class Validate {
 
     return true;
   }
+
+  unsupportedEmbed() {
+    throw new Error('Embed is not supported for this URL');
+  }
 }
 
 const validate = new Validate();
